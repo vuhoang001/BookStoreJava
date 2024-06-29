@@ -94,7 +94,72 @@ public class BookInfoDAO {
         }
         return data;
     }
-    
+      public BookInfo getBookById(String bookId) {
+        BookInfo bookInfo = null;
+        String query = "select books.book_id, books.book_name, "
+                + "authors.author_name, categories.category_name, publishes.publish_name, "
+                + "books.book_description, books.book_price, books.book_image, "
+                + "books.book_quantity_available, books.statusDelete "
+                + "from books "
+                + "left join authors on books.author_id = authors.author_id "
+                + "left join categories on categories.category_id = books.category_id "
+                + "left join publishes on books.publish_id = publishes.publish_id "
+                + "where books.book_id = ?";
+
+        try {
+            conn = new DBContext().getConnect();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, bookId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Books book = new Books(
+                        rs.getString("book_id"),
+                        rs.getString("book_name"),
+                        rs.getString("author_name"),
+                        rs.getString("category_name"),
+                        rs.getString("publish_name"),
+                        rs.getString("book_description"),
+                        rs.getFloat("book_price"),
+                        rs.getString("book_image"),
+                        rs.getInt("book_quantity_available"),
+                        rs.getBoolean("statusDelete")
+                );
+
+                Authors author = new Authors();
+                author.setAuthor_name(rs.getString("author_name")); // assuming Author class has appropriate setters
+
+                Categories category = new Categories();
+                category.setCategory_name(rs.getString("category_name")); // assuming Category class has appropriate setters
+
+                Publishes publish = new Publishes();
+                publish.setPublish_name(rs.getString("publish_name")); // assuming Publish class has appropriate setters
+
+                bookInfo = new BookInfo();
+                bookInfo.setBook(book);
+                bookInfo.setAuthor(author);
+                bookInfo.setCategory(category);
+                bookInfo.setPublish(publish);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            // Close resources
+            try {
+                rs.close();
+            } catch (Exception e) {
+                /* ignored */ }
+            try {
+                ps.close();
+            } catch (Exception e) {
+                /* ignored */ }
+            try {
+                conn.close();
+            } catch (Exception e) {
+                /* ignored */ }
+        }
+        return bookInfo;
+    }
     public static void main(String[] args) {
         
         BookInfoDAO bookInfoDAO = new BookInfoDAO();
