@@ -8,7 +8,14 @@
         <servlet-name>categories</servlet-name>
         <servlet-class>control.category</servlet-class>
     </servlet>
-   
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>control.CartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckBillServlet</servlet-name>
+        <servlet-class>control.CheckBillServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -17,5 +24,12 @@
         <servlet-name>categories</servlet-name>
         <url-pattern>/categories</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/CartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckBillServlet</servlet-name>
+        <url-pattern>/CheckBillServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
