@@ -15,16 +15,16 @@ public class DBContext {
             
 //          Hoanggggf
 
-<<<<<<< HEAD
-            String connectionUrl = "jdbc:sqlserver://HOANGGGGF\\SQLEXPRESS:1433;databaseName=BookStore4;encrypt=false";            
-            conn = DriverManager.getConnection(connectionUrl, "sa", "123");
-=======
-            String connectionUrl = "jdbc:sqlserver://LEBAOKHANH:1433;databaseName=bookstore4;encrypt=false";            
-            conn = DriverManager.getConnection(connectionUrl, "sa", "12345");
->>>>>>> e8f58080ff827c3ef220c5331068032ad2119767
 
-//            String connectionUrl = "jdbc:sqlserver://LAPTOP-HLRA9EFE\\SQLEXPRESS:1433;databaseName=CuaHangSach;encrypt=false";            
-//            conn = DriverManager.getConnection(connectionUrl, "sa", "123456");
+//            String connectionUrl = "jdbc:sqlserver://HOANGGGGF\\SQLEXPRESS:1433;databaseName=BookStore4;encrypt=false";            
+//            conn = DriverManager.getConnection(connectionUrl, "sa", "123");
+//
+//            String connectionUrl = "jdbc:sqlserver://LEBAOKHANH:1433;databaseName=bookstore4;encrypt=false";            
+//            conn = DriverManager.getConnection(connectionUrl, "sa", "12345");
+
+
+            String connectionUrl = "jdbc:sqlserver://LAPTOP-HLRA9EFE\\SQLEXPRESS:1433;databaseName=BookStore4;encrypt=false";            
+            conn = DriverManager.getConnection(connectionUrl, "sa", "123456");
 
             
             System.out.println("Kết nối cơ sở dữ liệu thành công !");

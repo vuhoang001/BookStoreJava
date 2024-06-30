@@ -14,9 +14,7 @@
             <div class="max-w-md mx-auto mt-[80px] rounded-lg border-solid border-2 border-zinc-200 shadow-md hover:shadow-lg p-4">
                 <h1 class="text-2xl text-center my-3">LOGIN</h1>
                 <form method="POST" action="Login">
-                    <c:if test="${not empty message}">
-                        <div class="alert alert-danger">${message}</div>
-                    </c:if>
+                    
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
@@ -25,8 +23,8 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-success w-full my-3">Submit</button>
-                    <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="DangKy.jsp" class="link-danger">Register</a></p>
+                    <button type="submit" class="btn btn-success w-full my-3">Sign In</button>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="DangKy.jsp" style="color: #393f81;"class="link-danger">Register here </a></p>
                 </form>
             </div>
         </div>

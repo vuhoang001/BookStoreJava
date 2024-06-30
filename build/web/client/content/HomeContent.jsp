@@ -48,10 +48,7 @@
     <div class="container">
         <h2>Welcome to Bookstore</h2>
         <p>Explore our wide collection of books and find your next favorite read.</p>
-
-        <a href="/client/layout/ShopLayout.jsp" class="btn">Shop Now</a>
-
-
+        <a href="#" class="btn">Shop Now</a>
     </div>
 </section>
 
@@ -119,5 +116,4 @@
             </li>
         </ul>
     </div>
-        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 </section>
