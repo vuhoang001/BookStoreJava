@@ -118,10 +118,9 @@
                                  
                                                     <p class="card-text"><strong>Price:</strong> $<%= book.getBook_price() %></p>
                                                     <p class="card-text"><strong>Quantity Available:</strong> <%= book.getBook_quantity_available() %></p>
-                                               <form action="/addToCartServlet" method="POST">
-                                                <input type="hidden" name="bookId" value="<%= book.getBook_id() %>">
+                                               
                                                 <button type="submit" class="btn btn-primary">Add To Cart</button>
-                                            </form>
+                                            
 
                                                     <a href="/client/layout/ViewProductLayout.jsp?book_id=<%= book.getBook_id() %>" class="btn btn-primary">Detail</a>
                                                 </div>

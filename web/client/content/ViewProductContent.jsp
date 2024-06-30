@@ -57,7 +57,7 @@
                                         <p class="card-text"><strong>Price:</strong> $<%= book.getBook_price() %></p>
                                         <p class="card-text"><strong>Quantity Available:</strong> <%= book.getBook_quantity_available() %></p>
                                         <a href="#" class="btn btn-primary">Add To Cart</a>
-                                           <a href="#" class="btn btn-primary">Back To Shop</a>
+                                           <a href="/client/layout/ShopLayout.jsp" class="btn btn-primary">Back To Shop</a>
                                     </div>
                                 </div>
                                 <% } else { %>
