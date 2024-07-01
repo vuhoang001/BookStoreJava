@@ -19,7 +19,7 @@
 
         <div class="container-fluid py-5">
             <div class="container py-5">
-                <a style="font-size:40px; font-weight: bold; " >   Cart</a>
+                <a style="font-size:40px; font-weight: bold; " >Your Bill</a>
 
                     <div class="table-responsive">
       
@@ -30,7 +30,7 @@
                             <th>Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Action</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,21 +48,18 @@
                                 int quantity = cartInfo.getTotal_quantity();
                                 float total = book.getBook_price() * quantity;
                                 subtotal += total;
-                                      
+                                
+                                    
                         %>
                         <tr>
                             <td><img src="<%= book.getBook_image() %>" alt="Book Image" style="width: 100px;"></td>
                             <td><%= book.getBook_name() %></td>
                             <td>$<%= book.getBook_price() %></td>
                          <td>
-                                <input type="number" class="quantityInput" value="<%= quantity %>" min="1">
+                              <%= quantity %>
                             </td>
                                  <td>
-                                <form method="post" action="<%= request.getContextPath() %>/CartServlet">
-                                    <input type="hidden" name="action" value="delete">
-                                    <input type="hidden" name="bookId" value="<%= book.getBook_id() %>">
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                </form>
+                                
                             </td>
                         </tr>
                         <% 

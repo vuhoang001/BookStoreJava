@@ -4,39 +4,38 @@
  */
 package control;
 
-import DAO.ShoppingCartDAO;
-import entity.ShoppingCart;
-import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.UUID;
+import jakarta.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 
 /**
  *
- * @author baokhanh
+ * @author admin
  */
-@WebServlet(name = "AddToCartServlet", urlPatterns = {"/addToCartServlet"})
-public class addToCartServlet extends HttpServlet {
+@WebServlet(name = "LogOutControl", urlPatterns = {"/logout"})
+public class LogOutControl extends HttpServlet {
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String bookId = request.getParameter("bookId"); // Lấy bookId từ request
-        // Thực hiện các bước để thêm vào giỏ hàng
-        ShoppingCartDAO shoppingCartDAO = new ShoppingCartDAO();
-        ShoppingCart shoppingCart = new ShoppingCart(UUID.randomUUID().toString(), "userId", bookId, "paymentId", 1, false); // Tạo đối tượng ShoppingCart
-        boolean success = shoppingCartDAO.createShoppingCart(shoppingCart); // Thêm vào giỏ hàng
-
-        // Điều hướng về trang thành công hoặc lỗi
-        if (success) {
-            response.sendRedirect(request.getContextPath() + "/success.jsp"); // Chuyển hướng về trang thành công
-        } else {
-            response.sendRedirect(request.getContextPath() + "/error.jsp"); // Chuyển hướng về trang lỗi
-        }
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+        session.removeAttribute("acc");
+        response.sendRedirect("DangNhap.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,7 +47,12 @@ public class addToCartServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -57,7 +61,12 @@ public class addToCartServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
     /**
      * Returns a short description of the servlet.
      *
