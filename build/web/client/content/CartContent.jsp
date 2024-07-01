@@ -48,7 +48,7 @@
                                 int quantity = cartInfo.getTotal_quantity();
                                 float total = book.getBook_price() * quantity;
                                 subtotal += total;
-                                     
+                                      
                         %>
                         <tr>
                             <td><img src="<%= book.getBook_image() %>" alt="Book Image" style="width: 100px;"></td>
@@ -76,9 +76,7 @@
                   
                     <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
                      <form method="post" action="<%= request.getContextPath() %>/CheckBillServlet">
-                                
     <input type="hidden" name="action" value="buyNow">
-    
     <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="submit">Buy now!</button>
 </form>
  

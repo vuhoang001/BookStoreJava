@@ -181,7 +181,32 @@ public class CustomersDAO {
             }
         }
     }
+  public Customers getCustomerByUsernameAndPassword(String username, String password) {
+        String query = "SELECT * FROM customers WHERE customer_username = ? AND customer_password = ? AND statusDelete = 0";
+        try {
+            conn = new DBContext().getConnect();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            rs = ps.executeQuery();
 
+            if (rs.next()) {
+                return new Customers(
+                        rs.getString("customer_id"),
+                        rs.getString("customer_name"),
+                        rs.getString("customer_address"),
+                        rs.getString("customer_phone"),
+                        rs.getString("customer_username"),
+                        rs.getString("customer_password"),
+                        rs.getString("customer_role"),
+                        rs.getBoolean("statusDelete")
+                );
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
     public static void main(String[] args) {
         CustomersDAO dao = new CustomersDAO();
 

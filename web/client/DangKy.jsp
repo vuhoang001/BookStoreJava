@@ -40,7 +40,7 @@
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <button type="submit" class="btn btn-success w-full my-3">SignUp</button>
-                    <button type="submit" class="btn btn-success w-full my-3"herf="index.jsp">Thoát</button>
+                    <a href="DangNhap.jsp" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
                 </form>
             </div>
         </div>
