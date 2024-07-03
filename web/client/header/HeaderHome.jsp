@@ -69,19 +69,13 @@
                             <span class="fa fa-bars text-primary"></span>
                         </button>
 
-                        <a href="/bansach/client/index.jsp" class="button">Home</a>
-                        
-                        <a href="/bansach/client/layout/ShopLayout.jsp" class="button">Shop</a>
-                        <c:if test="${sessionScope.acc.customer_role == 'admin'}">
-                            
-                        <a href="/bansach/client/content/ManagerBook.jsp" class="button">Quản Lý Sách</a>
-          
                         <a href="/client/index.jsp" class="button">Home</a>
                         
-                         <a href="/client/layout/ShopLayout.jsp" class="button">Shop</a>
+                        <a href="/client/layout/ShopLayout.jsp" class="button">Shop</a>
+            
                         <c:if test="${sessionScope.acc.customer_role == 'admin'}">
 
-                          <a href="/bansach/client/content/ManagerBook.jsp" class="button">Quản Lý Sách</a>
+                          <a href="/client/layout/ManagerBookLayout.jsp" class="button">Quản Lý Sách</a>
 
                         </c:if>
                         <a href="/client/layout/CartLayout.jsp" class="button">Cart</a>
@@ -92,7 +86,7 @@
                             
 
                             <a href="${pageContext.request.contextPath}/logout" class="button">Logout</a>
-                  <a href="" class="button">Logout</a>
+               
 
                         </c:if>
                             

@@ -30,6 +30,7 @@
 
         <div class="container-fluid py-5">
             <div class="container py-5">
+                   <br>
                 <a style="font-size:40px; font-weight: bold; " >   Cart</a>
 
                     <div class="table-responsive">
@@ -93,7 +94,7 @@
                     <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
                      <form method="post" action="<%= request.getContextPath() %>/CheckBillServlet">
     <input type="hidden" name="action" value="buyNow">
-    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="submit">Buy now!</button>
+    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="submit">Check Bill!</button>
                  <input type="hidden" id="hiddenQuantity" name="quantity" value="">
 </form>
  
