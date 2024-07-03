@@ -39,7 +39,7 @@
             .button {
                 padding: 10px 20px;
                 margin: 10px;
-                font-size: 20px; /* Font size */
+                font-size: 15px; /* Font size */
                 text-decoration: none; /* Remove underline */
             }
         </style>
@@ -69,17 +69,20 @@
                             <span class="fa fa-bars text-primary"></span>
                         </button>
                         <a href="/bansach/client/index.jsp" class="button">Home</a>
+                        
+                        <a href="/bansach/client/layout/ShopLayout.jsp" class="button">Shop</a>
                         <c:if test="${sessionScope.acc.customer_role == 'admin'}">
-
-                            <a href="/bansach/client/layout/ShopLayout.jsp" class="button">Shop</a>
+                            
+                        <a href="/bansach/client/content/ManagerBook.jsp" class="button">Quản Lý Sách</a>
+                            
                         </c:if>
                         <a href="/bansach/client/layout/CartLayout.jsp" class="button">Cart</a>
                         <a href="#" class="button">Content</a>
                         <c:if test="${sessionScope.acc != null}">
                             
-                                <a href="#" class="nav-link" > Hello ${sessionScope.acc.customer_username}</a>
+                                <a href="#" class="button" > Hello ${sessionScope.acc.customer_username}</a>
                             
-                            <a href="DangNhap.jsp" class="button">Logout</a>
+                            <a href="${pageContext.request.contextPath}/logout" class="button">Logout</a>
                         </c:if>
                             
                         <c:if test="${sessionScope.acc == null}">

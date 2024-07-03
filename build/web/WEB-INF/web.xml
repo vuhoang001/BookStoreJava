@@ -18,6 +18,10 @@
         <servlet-name>SignUpServlet</servlet-name>
         <servlet-class>control.SignUpServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagerControl</servlet-name>
+        <servlet-class>control.ManagerControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/CartServlet</url-pattern>
