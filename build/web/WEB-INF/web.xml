@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-<<<<<<< HEAD
-=======
     <servlet>
         <servlet-name>CartServlet</servlet-name>
         <servlet-class>control.CartServlet</servlet-class>
@@ -19,8 +17,13 @@
         <servlet-class>control.SignUpServlet</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>ManagerControl</servlet-name>
         <servlet-class>control.ManagerControl</servlet-class>
+=======
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>control.AddToCartServlet</servlet-class>
+>>>>>>> 834b0220c4090e7d0cb5b4469cc89a3fe0cdc7d8
     </servlet>
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
@@ -38,5 +41,8 @@
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
     </servlet-mapping>
->>>>>>> 57a6a634ca0b989bc08128e20933f74ef371e235
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/AddToCartServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

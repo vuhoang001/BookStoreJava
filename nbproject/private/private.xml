@@ -2,6 +2,44 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/DAO/CustomersDAO.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/control/LoginServlet.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/content/CheckBillContent.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/index.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/DAO/PublishesDAO.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/content/CartContent.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/control/SignUpServlet.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/layout/CartLayout.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/layout/ShopLayout.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/content/ShopContent.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/DAO/ShoppingCartDAO.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/entity/Customers.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/content/ViewProductContent.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/WEB-INF/web.xml</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/control/CartServlet.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/control/CheckBillServlet.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/control/LogOutControl.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/content/HomeContent.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/entity/ShoppingCartInfo.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/header/HeaderHome.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/layout/CheckBillLayout.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/META-INF/context.xml</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/control/AddToCartServlet.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/DangKy.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/DAO/ShoppingCartInfoDAO.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/layout/ViewProductLayout.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/layout/HomeLayout.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/DAO/Dao.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/layout/HomeLayout.css</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/entity/ShoppingCart.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/DangNhap.jsp</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/entity/Books.java</file>
+            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/context/DBContext.java</file>
+        </group>
+>>>>>>> 834b0220c4090e7d0cb5b4469cc89a3fe0cdc7d8
     </open-files>
 </project-private>
