@@ -68,22 +68,24 @@
                         <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="fa fa-bars text-primary"></span>
                         </button>
-                        <a href="/bansach/client/index.jsp" class="button">Home</a>
+                        <a href="/client/index.jsp" class="button">Home</a>
+                        
+                         <a href="/client/layout/ShopLayout.jsp" class="button">Shop</a>
                         <c:if test="${sessionScope.acc.customer_role == 'admin'}">
 
-                            <a href="/bansach/client/layout/ShopLayout.jsp" class="button">Shop</a>
+                           
                         </c:if>
-                        <a href="/bansach/client/layout/CartLayout.jsp" class="button">Cart</a>
+                        <a href="/client/layout/CartLayout.jsp" class="button">Cart</a>
                         <a href="#" class="button">Content</a>
                         <c:if test="${sessionScope.acc != null}">
                             
                                 <a href="#" class="nav-link" > Hello ${sessionScope.acc.customer_username}</a>
                             
-                            <a href="DangNhap.jsp" class="button">Logout</a>
+                            <a href="" class="button">Logout</a>
                         </c:if>
                             
                         <c:if test="${sessionScope.acc == null}">
-                            <a href="DangNhap.jsp" class="button">Login</a>
+                            <a href="/client/DangNhap.jsp" class="button">Login</a>
                         </c:if>
 
                     </nav>

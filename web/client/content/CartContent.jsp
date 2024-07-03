@@ -7,10 +7,21 @@
 <%@ page import="entity.ShoppingCartInfo" %>
 <%@ page import="DAO.ShoppingCartInfoDAO" %>
 <%@ page import="entity.Books" %>
+<%@ page import="entity.Customers" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
    <!DOCTYPE html>
 <html lang="en">
-
+    <head>
+         <script>
+        function updateQuantity() {
+            var quantityInputs = document.getElementsByClassName("quantityInput");
+            for (var i = 0; i < quantityInputs.length; i++) {
+                var quantity = quantityInputs[i].value;
+                quantityInputs[i].nextElementSibling.value = quantity; // Update hidden input
+            }
+        }
+    </script>
+    </head>
     
 
 
@@ -34,30 +45,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% 
-                            String customerId = "CU001"; 
-                            ShoppingCartInfoDAO dao = new ShoppingCartInfoDAO();
-                            List<ShoppingCartInfo> cartInfoList = dao.getShoppingCartInfoById(customerId);
-
-                           
-                            
-                            float subtotal = 0;
-                          
-                            for (ShoppingCartInfo cartInfo : cartInfoList) {
-                                Books book = cartInfo.getBooks();
-                                int quantity = cartInfo.getTotal_quantity();
-                                float total = book.getBook_price() * quantity;
-                                subtotal += total;
-                                      
+                        <%
+                            // Lấy thông tin khách hàng từ session
+                            Customers customer = (Customers) session.getAttribute("acc");
+                            if (customer != null) {
+                                String customerId = customer.getCustomer_id();
+                                ShoppingCartInfoDAO dao = new ShoppingCartInfoDAO();
+                                List<ShoppingCartInfo> cartInfoList = dao.getShoppingCartInfoById(customerId);
+                                float subtotal = 0;
+                                for (ShoppingCartInfo cartInfo : cartInfoList) {
+                                    Books book = cartInfo.getBooks();
+                                    int quantity = cartInfo.getTotal_quantity();
+                                    float total = book.getBook_price() * quantity;
+                                    subtotal += total;
                         %>
                         <tr>
-                            <td><img src="<%= book.getBook_image() %>" alt="Book Image" style="width: 100px;"></td>
+                            <td><img src="<%= book.getBook_image() %>" alt="Book Image"></td>
                             <td><%= book.getBook_name() %></td>
                             <td>$<%= book.getBook_price() %></td>
-                         <td>
+                            <td>
                                 <input type="number" class="quantityInput" value="<%= quantity %>" min="1">
                             </td>
-                                 <td>
+                            <td>
                                 <form method="post" action="<%= request.getContextPath() %>/CartServlet">
                                     <input type="hidden" name="action" value="delete">
                                     <input type="hidden" name="bookId" value="<%= book.getBook_id() %>">
@@ -65,9 +74,16 @@
                                 </form>
                             </td>
                         </tr>
-                        <% 
-                           
-                            } %>
+                        <%
+                                }
+                            } else {
+                        %>
+                        <tr>
+                            <td colspan="5">No items in your cart.</td>
+                        </tr>
+                        <%
+                            }
+                        %>
                     </tbody>
                 </table>
                     </div>
@@ -78,6 +94,7 @@
                      <form method="post" action="<%= request.getContextPath() %>/CheckBillServlet">
     <input type="hidden" name="action" value="buyNow">
     <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="submit">Buy now!</button>
+                 <input type="hidden" id="hiddenQuantity" name="quantity" value="">
 </form>
  
                     </div>

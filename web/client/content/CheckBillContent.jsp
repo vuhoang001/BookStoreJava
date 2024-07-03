@@ -7,6 +7,7 @@
 <%@ page import="entity.ShoppingCartInfo" %>
 <%@ page import="DAO.ShoppingCartInfoDAO" %>
 <%@ page import="entity.Books" %>
+<%@ page import="entity.Customers" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
    <!DOCTYPE html>
 <html lang="en">
@@ -33,38 +34,33 @@
                             <th>Total</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <% 
-                            String customerId = "CU001"; 
-                            ShoppingCartInfoDAO dao = new ShoppingCartInfoDAO();
-                            List<ShoppingCartInfo> cartInfoList = dao.getShoppingCartInfoById(customerId);
+                   <tbody>
+                        <%
+                            Customers customer = (Customers) session.getAttribute("acc");
+                            if (customer != null) {
+                                String customerId = customer.getCustomer_id();
+                                ShoppingCartInfoDAO dao = new ShoppingCartInfoDAO();
+                                List<ShoppingCartInfo> cartInfoList = dao.getShoppingCartInfoById(customerId);
 
-                           
-                            
-                            float subtotal = 0;
-                          
-                            for (ShoppingCartInfo cartInfo : cartInfoList) {
-                                Books book = cartInfo.getBooks();
-                                int quantity = cartInfo.getTotal_quantity();
-                                float total = book.getBook_price() * quantity;
-                                subtotal += total;
-                                
-                                    
+                                float subtotal = 0;
+
+                                for (ShoppingCartInfo cartInfo : cartInfoList) {
+                                    Books book = cartInfo.getBooks();
+                                    int quantity = cartInfo.getTotal_quantity();
+                                    float total = book.getBook_price() * quantity;
+                                    subtotal += total;
                         %>
                         <tr>
                             <td><img src="<%= book.getBook_image() %>" alt="Book Image" style="width: 100px;"></td>
                             <td><%= book.getBook_name() %></td>
                             <td>$<%= book.getBook_price() %></td>
-                         <td>
-                              <%= quantity %>
-                            </td>
-                                 <td>
-                                
-                            </td>
+                            <td><%= quantity %></td>
+                            <td>$<%= total %></td>
                         </tr>
-                        <% 
-                           
-                            } %>
+                        <%
+                                }
+                            }
+                        %>
                     </tbody>
                 </table>
                     </div>

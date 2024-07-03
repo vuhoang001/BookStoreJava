@@ -27,16 +27,12 @@ public class DBContext {
 //            conn = DriverManager.getConnection(connectionUrl, "sa", "12345");
 
 
-            String connectionUrl = "jdbc:sqlserver://LAPTOP-HLRA9EFE\\SQLEXPRESS:1433;databaseName=BookStore4;encrypt=false";            
-            conn = DriverManager.getConnection(connectionUrl, "sa", "123456");
-
-
 
 //            String connectionUrl = "jdbc:sqlserver://HOANGGGGF\\SQLEXPRESS:1433;databaseName=BookStore4;encrypt=false";            
 //            conn = DriverManager.getConnection(connectionUrl, "sa", "123");
 
-//            String connectionUrl = "jdbc:sqlserver://LEBAOKHANH:1433;databaseName=bookstore4;encrypt=false";            
-//            conn = DriverManager.getConnection(connectionUrl, "sa", "12345");
+            String connectionUrl = "jdbc:sqlserver://LEBAOKHANH:1433;databaseName=bookstore4;encrypt=false";            
+            conn = DriverManager.getConnection(connectionUrl, "sa", "12345");
 
             
 

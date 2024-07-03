@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
 //        processRequest(request, response);
     }
 
@@ -53,7 +54,7 @@ public class LoginServlet extends HttpServlet {
             session.setMaxInactiveInterval(60*60*24*365);
 //            request.setAttribute("customers", customers);
 //            request.getRequestDispatcher("/bansach/client/index.jsp").forward(request, response);
-            response.sendRedirect("/bansach/client/index.jsp");
+            response.sendRedirect("/client/index.jsp");
         }
 //        CustomersDAO dao = new CustomersDAO();
 //        Customers customer = dao.getCustomerByUsernameAndPassword(username, password);

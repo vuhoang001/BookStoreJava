@@ -48,9 +48,9 @@ public class SignUpServlet extends HttpServlet {
         Customers cus = dao.CheckSignup(user);
         if(cus == null){
             dao.Signup(tenkh, diachi, sdt, user, pass);
-            response.sendRedirect("/bansach/client/index.jsp");
+            response.sendRedirect("/client/index.jsp");
         }else{
-            response.sendRedirect("/bansach/client/DangNhap.jsp");
+            response.sendRedirect("/client/DangNhap.jsp");
         }
     }
     @Override

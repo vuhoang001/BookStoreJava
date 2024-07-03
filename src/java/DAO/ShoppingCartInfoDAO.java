@@ -136,7 +136,18 @@ public boolean updateCartStatus(String customerId, int statusDelete) {
             return false;
         } 
     }
-
+public boolean updateCartQuantity(String customerId, String bookId, int quantity) {
+    String query = "UPDATE shopping_cart SET shopping_cart_quantity = ? WHERE customer_id = ? AND book_id = ? AND statusDelete = 0";
+    try (Connection conn = new DBContext().getConnect(); PreparedStatement ps = conn.prepareStatement(query)) {
+        ps.setInt(1, quantity);
+        ps.setString(2, customerId);
+        ps.setString(3, bookId);
+        int rowsUpdated = ps.executeUpdate();
+        return rowsUpdated > 0;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return false;
+    }}
     public ShoppingCartInfoDAO() {
     }
 
