@@ -3,15 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/layout/css/style.css</file>
-            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/layout/ViewProductLayout.jsp</file>
-            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/layout/HomeLayout.jsp</file>
-            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/css/style.css</file>
-            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/DAO/BookInfoDAO.java</file>
-            <file>file:/E:/servlet/bansach/BookStoreJava/src/java/control/category.java</file>
-            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/index.jsp</file>
-            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/content/HomeContent.jsp</file>
-            <file>file:/E:/servlet/bansach/BookStoreJava/web/client/header/HeaderHome.jsp</file>
+            <file>file:/D:/java/Source/bookstore/bansach/src/java/DAO/AuthorsDAO.java</file>
         </group>
     </open-files>
 </project-private>
