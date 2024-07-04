@@ -25,6 +25,9 @@ public class ShoppingCartInfoDAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
+    private int quantity;
+    private String bookId;
+    private String paymentId;
 
     public List<ShoppingCartInfo> getShoppingCartInfoById(String id) {
         List<ShoppingCartInfo> data = new ArrayList<>();
@@ -103,10 +106,54 @@ public class ShoppingCartInfoDAO {
         }
         return data;
     }
-    
+    public boolean deleteCartItem(String customerId, String bookId) {
+        String query = "DELETE FROM shopping_cart WHERE customer_id = ? AND book_id = ?";
+        try {
+            conn = new DBContext().getConnect();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, customerId);
+            ps.setString(2, bookId);
+            int deletedRows = ps.executeUpdate();
+            return deletedRows > 0;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        } 
+    }
+public boolean updateCartStatus(String customerId, int statusDelete) {
+        String query = "UPDATE shopping_cart SET statusDelete = ? WHERE customer_id = ?";
+
+        try {
+            conn = new DBContext().getConnect();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, statusDelete);
+            ps.setString(2, customerId);
+
+            int rowsUpdated = ps.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        } 
+    }
+public boolean updateCartQuantity(String customerId, String bookId, int quantity) {
+    String query = "UPDATE shopping_cart SET shopping_cart_quantity = ? WHERE customer_id = ? AND book_id = ? AND statusDelete = 0";
+    try (Connection conn = new DBContext().getConnect(); PreparedStatement ps = conn.prepareStatement(query)) {
+        ps.setInt(1, quantity);
+        ps.setString(2, customerId);
+        ps.setString(3, bookId);
+        int rowsUpdated = ps.executeUpdate();
+        return rowsUpdated > 0;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return false;
+    }}
+    public ShoppingCartInfoDAO() {
+    }
+
     public static void main(String[] args) {
         ShoppingCartInfoDAO shoppingCartInfoDAO = new ShoppingCartInfoDAO();
-        String customerId = "cu001"; // Replace with a valid customer ID for testing
+        String customerId = "CU001"; // Replace with a valid customer ID for testing
 
         List<ShoppingCartInfo> shoppingCartInfos = shoppingCartInfoDAO.getShoppingCartInfoById(customerId);
 

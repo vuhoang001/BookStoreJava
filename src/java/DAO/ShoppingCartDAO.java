@@ -9,6 +9,7 @@ import entity.ShoppingCart;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -160,6 +161,30 @@ public class ShoppingCartDAO {
                 /* ignored */ }
         }
     }
+    
+    
+    public List<ShoppingCart> getCartItemsByCustomerId(String customerId) throws SQLException {
+    List<ShoppingCart> cartItems = new ArrayList<>();
+    String query = "SELECT * FROM shopping_cart WHERE customer_id = ? AND statusDelete = 0";
+    
+    try (Connection conn = new DBContext().getConnect(); 
+         PreparedStatement ps = conn.prepareStatement(query)) {
+        ps.setString(1, customerId);
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                ShoppingCart item = new ShoppingCart(
+                    rs.getString("shopping_cart_id"),
+                    rs.getString("customer_id"),
+                    rs.getString("book_id"),
+                    rs.getString("payment_id"),
+                    rs.getInt("shopping_cart_quantity"),
+                    rs.getBoolean("statusDelete")
+                );
+            }
+        }
+    }
+        return null;
+ }
 
     public static void main(String[] args) {
         ShoppingCartDAO dao = new ShoppingCartDAO();

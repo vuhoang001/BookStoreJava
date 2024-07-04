@@ -56,8 +56,13 @@
                                         <p class="card-text"><strong>Description:</strong> <%= book.getBook_description() %></p>
                                         <p class="card-text"><strong>Price:</strong> $<%= book.getBook_price() %></p>
                                         <p class="card-text"><strong>Quantity Available:</strong> <%= book.getBook_quantity_available() %></p>
-                                        <a href="#" class="btn btn-primary">Add To Cart</a>
-                                           <a href="#" class="btn btn-primary">Back To Shop</a>
+                                        <form action="<%= request.getContextPath() %>/AddToCartServlet" method="post">
+                                                        <input type="hidden" name="book_id" value="<%= book.getBook_id() %>">
+                                                        <button type="submit" class="btn btn-primary">Add To Cart</button>
+                                                    </form>
+                                                        <form>
+                                           <a href="/client/layout/ShopLayout.jsp" class="btn btn-primary">Back To Shop</a>
+                                               </form>
                                     </div>
                                 </div>
                                 <% } else { %>
@@ -116,7 +121,7 @@
                                         <img src="img/featur-1.jpg" class="img-fluid rounded" alt="Image">
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">Big Banana</h6>
+                                        <h6 class="mb-2">Book1</h6>
                                         <div class="d-flex mb-2">
                                             <i class="fa fa-star"></i>
                                         </div>
@@ -131,7 +136,7 @@
                                         <img src="img/featur-2.jpg" class="img-fluid rounded" alt="">
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">Big Banana</h6>
+                                        <h6 class="mb-2">Book2</h6>
                                         <div class="d-flex mb-2"></div>
                                         <div class="d-flex mb-2">
                                             <h5 class="fw-bold me-2">2.99 $</h5>
@@ -144,7 +149,7 @@
                                         <img src="img/featur-3.jpg" class="img-fluid rounded" alt="">
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">Big Banana</h6>
+                                        <h6 class="mb-2">Book3</h6>
                                         <div class="d-flex mb-2"></div>
                                         <div class="d-flex mb-2">
                                             <h5 class="fw-bold me-2">2.99 $</h5>

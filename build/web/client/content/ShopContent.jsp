@@ -13,14 +13,16 @@
             height: 300px; /* Chiều cao cố định cho hình ảnh */
             object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
         }
-        .card-body {
-            overflow: hidden; /* Ẩn nội dung tràn */
-        }
+        
+        
     </style>
+     
+    
 </head>
 <body>
     <div class="container-fluid fruite py-5">
         <div class="container py-5">
+               <br>
             <h1 class="mb-4">Bookstore</h1>
             <div class="row g-4">
                 <div class="col-lg-12">
@@ -118,10 +120,11 @@
                                  
                                                     <p class="card-text"><strong>Price:</strong> $<%= book.getBook_price() %></p>
                                                     <p class="card-text"><strong>Quantity Available:</strong> <%= book.getBook_quantity_available() %></p>
-                                               <form action="/addToCartServlet" method="POST">
-                                                <input type="hidden" name="bookId" value="<%= book.getBook_id() %>">
-                                                <button type="submit" class="btn btn-primary">Add To Cart</button>
-                                            </form>
+                                               
+                                                <form action="<%= request.getContextPath() %>/AddToCartServlet" method="post">
+                                                        <input type="hidden" name="book_id" value="<%= book.getBook_id() %>">
+                                                        <button type="submit" class="btn btn-primary">Add To Cart</button>
+                                                    </form>
 
                                                     <a href="/client/layout/ViewProductLayout.jsp?book_id=<%= book.getBook_id() %>" class="btn btn-primary">Detail</a>
                                                 </div>

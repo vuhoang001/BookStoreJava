@@ -85,6 +85,63 @@ public class BooksDAO {
         }
         return data;
     }
+    
+    
+    public List<Books> getAllBooksWithDetails() {
+        List<Books> data = new ArrayList<>();
+        String query = "SELECT " +
+                "books.book_id AS BookID, " +
+                "books.book_name AS BookName, " +
+                "authors.author_name AS AuthorName, " +
+                "categories.category_name AS CategoryName, " +
+                "books.book_description AS BookDescription, " +
+                "books.book_price AS BookPrice, " +
+                "books.book_image AS BookImage, " +
+                "books.book_quantity_available AS BookQuantityAvailable " +
+                "FROM " +
+                "books " +
+                "JOIN authors ON books.author_id = authors.author_id " +
+                "JOIN categories ON books.category_id = categories.category_id " +
+                "WHERE " +
+                "books.statusDelete = 0";
+
+        try {
+            conn = new DBContext().getConnect();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Books res = new Books(
+                        rs.getString("BookID"),
+                        rs.getString("BookName"),
+                        rs.getString("AuthorName"),
+                        rs.getString("CategoryName"),
+//                        null, // publish_id không có trong câu truy vấn mới
+                        rs.getString("BookDescription"),
+                        rs.getFloat("BookPrice"),
+                        rs.getString("BookImage"),
+                        rs.getInt("BookQuantityAvailable"),
+                        false 
+                );
+                data.add(res);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            // Đóng tài nguyên theo thứ tự ngược lại với thứ tự tạo ra chúng
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception e) { /* ignored */ }
+        }
+        return data;
+    }
+
 
     public Boolean deleteBookById(String id) {
         String query = "UPDATE books SET statusDelete = 1 WHERE book_id = ?";
@@ -182,9 +239,9 @@ public class BooksDAO {
 
 //        boolean data = dao.deleteBookById("B1"); 
 //        System.out.println(data);
-        Books book = new Books("Yoenggg", "AU001", "CT001", "PB001", "Yoengggg", (float) 9999, "Yoenggg", 1000, Boolean.FALSE);
-        boolean res = dao.createBook(book);
-        List<Books> data = dao.getAllBooks();
+//        Books book = new Books("Yoenggg", "AU001", "CT001", "PB001", "Yoengggg", (float) 9999, "Yoenggg", 1000, Boolean.FALSE);
+//        boolean res = dao.createBook(book);
+        List<Books> data = dao.getAllBooksWithDetails();
         for (var item : data) {
             System.out.println(item);
         }
