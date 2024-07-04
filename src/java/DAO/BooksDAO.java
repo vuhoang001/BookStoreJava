@@ -237,13 +237,10 @@ public class BooksDAO {
         //        Books data = dao.getBookById("B1");
         //        System.out.println(data);
 
-//        boolean data = dao.deleteBookById("B1"); 
-//        System.out.println(data);
+        boolean data = dao.deleteBookById("BK001"); 
+        System.out.println(data);
 //        Books book = new Books("Yoenggg", "AU001", "CT001", "PB001", "Yoengggg", (float) 9999, "Yoenggg", 1000, Boolean.FALSE);
 //        boolean res = dao.createBook(book);
-        List<Books> data = dao.getAllBooksWithDetails();
-        for (var item : data) {
-            System.out.println(item);
-        }
+
     }
 }

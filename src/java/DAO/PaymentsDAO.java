@@ -134,14 +134,15 @@ public class PaymentsDAO {
     }
 
     public Boolean createPayment(Payments paym) {
-        String query = "INSERT INTO payments (total_price, statusDelete) VALUES (?, ?)";
+        String query = "INSERT INTO payments (payment_id, total_price, statusDelete) VALUES (?, ?, ?)";
 
         try {
             conn = new DBContext().getConnect();
             ps = conn.prepareStatement(query);
-
-            ps.setFloat(1, paym.getTotal_price());
-            ps.setBoolean(2, false);
+            
+            ps.setString(1, paym.getPayment_id());
+            ps.setFloat(2, paym.getTotal_price());
+            ps.setBoolean(3, false);
 
             int rowsInserted = ps.executeUpdate();
 
@@ -172,12 +173,9 @@ public class PaymentsDAO {
 //        Payments pay = new Payments("1", (float) 99999, Boolean.FALSE);
 //        boolean data = dao.editPaymentById(pay);
 //        System.out.println(data);
-        Payments pay = new Payments((float) 99999, Boolean.FALSE);
-        dao.createPayment(pay);
+        Payments pay = new Payments("TTNL", (float) 99999, Boolean.FALSE);
+        Boolean res = dao.createPayment(pay);
+        System.out.println(res);
 
-        List<Payments> data = dao.getAllPayments();
-        for (var item : data) {
-            System.out.println(item);
-        }
     }
 }
